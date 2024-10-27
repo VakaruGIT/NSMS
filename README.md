@@ -1,23 +1,4 @@
-# Assignment 1
-## Deadline: <span style="color:red;">14.04.2024, 23:00</span>
-
---- 
-
-# PaperBack: A Newspaper Subscription Management Software
-
-Let us imagine, that we are building up an application to manage newspaper subscriptions.
-The software shall be used by employees of the newspaper agency to manage the newspaper 
-issues and monitor their client subscriptions.
-This programming task is about implementing a web API, so that the same software can be
-customized by different newspaper agencies to build their own applications based on the provided API. 
-At the moment, we do not care about the front-end of the application, which could be 
-any browser or a mobile app. And we also don’t care about a database that stores the data 
-persistently. In this exercise, we deal with the API implementation only. 
-You may use a REST client like Postman to quickly see the results of the API call. 
-It is recommended to use Python requests library and Pytest to thoroughly test the API. 
-A Swagger based UI is provided, so that you can also test the application based on a 
-browser front-end. Design your objects and classes allowing for easy future extensions.
-
+# A Newspaper Subscription Management Software
 ## Functionality
 
 The API consists of the following main functionality
@@ -38,30 +19,6 @@ The API consists of the following main functionality
 - When a client is removed (e.g., cancels a subscription), all subscriptions are stopped
 
 
-## Your Task
-
-The API should be implemented in Python using a package called Flask, which allows you to define 
-HTML methods GET, POST, PUT etc. Each method returns a JSON object, which can be used by 
-the front-end application in adequate ways. The summary of HTML methods to be implemented 
-as part of the homework is listed in the following table. 
-
-The first few methods have already been implemented as examples.
-Write Test cases to thoroughly test your API – 
-manual testing with Postman is good, but not enough.
-Come up with an automated testing script, which simulates the daily operations 
-of the paper agency. For example, add newspapers, employees and clients, 
-create issues and subscriptions.
-
-> [!NOTE]
-> In this exercise, we focus on the API implementation only. 
-Feel free to create your own client application based on the API as your side project. 
-The side project is not graded but a lot of fun!
-
-## Your Task
-Your task is to assert that the following HTTP methods are implemented and functioning.
-Ensure the correct functionality through appropriate test cases!
-
-A few examples are provided in the [`src`](./src) and [`test`](./test) folders to get you started.
 
 | Endpoint                                         | HTTP Method | Description                                                                                                                                             |
 |--------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -91,34 +48,7 @@ A few examples are provided in the [`src`](./src) and [`test`](./test) folders t
 | `/subscriber/<subscriber_id>/subscribe`          | `POST`      | Subscribe a subscriber to a newspaper. (Transmit the newspaper ID as parameter.)                                                                        |
 | `/subscriber/<subscriber_id>/stats`              | `GET`       | Get the number of newspaper subscriptions and the monthly and annual cost, as well as the number of issues that the subscriber received for each paper. |
 | `/subscriber/<subscriber_id>/missingissues`      | `GET`       | Check if there are any undelivered issues of the subscribed newspapers.                                                                                 |
-
-
-### Submission
-Submission of the project must be done through a Github Repository.
-Create your own repository and upload your code to your private repository before the deadline. 
-Add [@deepak-dhungana](https://github.com/deepak-dhungana) and [@stklik](https://github.com/stklik) as collaborators to your repository. 
-
-**Submit the URL of your repository via MS Teams.**
-
-In order to create a new Github account, visit https://github.fhkre.ms and login with your IMC FH Krems account.
-
-
 ---
-## Technical Hints
-
-We developed our application using [flask-restx](https://flask-restx.readthedocs.io/en/latest).
-
-#### Python Version
-You will (probably) not need any special features related to specific Python versions to complete this exercise.
-The sample code provided by us was developed in Python v3.8 for general compatibility.
-Feel free, however, to use a newer version (e.g. 3.9, 3.10, 3.11) to benefit from new functionality.
-
-
-### Singletons
-The app uses a programming pattern called "Singleton" (see [Wikipedia](https://en.wikipedia.org/wiki/Singleton_pattern)) 
-to assert that all information is stored in the same `Agency` object.
-To access the (globally unique) agency, use the `Agency.get_instance()` *static* method.
-
 
 ### Installation
 
@@ -134,7 +64,6 @@ python start.py
 
 Then, you can navigate to http://127.0.0.1:7890/ and try the endpoints using the Swagger interface.
 
-
 ### Testing with [pytest](https://docs.pytest.org/)
 
 To trigger the automated tests, execute
@@ -144,12 +73,3 @@ pytest
 
 Note, that your `print` statements will not be visible, 
 unless you add the `-s` argument to the call, i.e. `pytest -s`.
-
-
-## Contribute
-
-Should you discover any problems in the code or have suggestions, 
-please leave a Github issue and document your findings.
-
-If you have a fix for a problem, feel free to leave a Pull Request. 
-([Helpful Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request))
